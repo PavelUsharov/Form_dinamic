@@ -5,13 +5,13 @@ html, body{
     width: 100%;
  }
 
-sup{
-    color: red;
-}
-
 span{
     text-decoration: underline;
     color: red;
+}
+
+sup{
+    color:red
 }
 
 textarea{
@@ -43,7 +43,6 @@ button{
 
     display: flex;
     flex: 1 1 100%;
-    /*background: #e6ff9d;*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -77,13 +76,7 @@ fieldset {
     border: 1px solid blue;
 }
 
-.box {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .box1 {
-
     margin-left: 1%;
     box-sizing: border-box;
     margin-bottom: 15px;
@@ -92,6 +85,13 @@ fieldset {
     max-width: 80%;
 }
 
+.box {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
 
 /*::-webkit-datetime-edit { padding: 1em; }*/
 /*::-webkit-datetime-edit-fields-wrapper { background: silver; }*/
@@ -99,15 +99,36 @@ fieldset {
 /*::-webkit-datetime-edit-month-field { color: blue; }*/
 /*::-webkit-datetime-edit-day-field { color: green; }*/
 /*::-webkit-datetime-edit-year-field { color: purple; }*/
-::-webkit-inner-spin-button { display: none; }
-::-webkit-calendar-picker-indicator {
+
+
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
      background: transparent;
      position: relative;
-    color: transparent;
+     color: transparent;
      left: 18px;
      padding: 5px;
-     }
+}
 
+
+
+
+
+[required] ~ label:after {
+    content: "*";
+    color: red;
+}
+
+input, select, textarea{
+    order: 2;
+}
+
+label{
+    order: 1;
+}
 
 
 input[type="date"]:after{
@@ -115,12 +136,18 @@ input[type="date"]:after{
   }
 
 
-
+#agreement{
+    margin-left: -1px;
+}
 
 @media screen and (max-width:550px) {
 
+    #agreement{
+        margin-left: -8px;
+    }
+
     .box {
-        display: inline-block;
+        display: grid;
         width: 100%;
         padding-left: 5%;
     }
@@ -162,6 +189,7 @@ input[type="date"]:after{
         max-width: 600px;
         margin-bottom: 15px;
     }
+
 
 }
 
